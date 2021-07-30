@@ -17,7 +17,7 @@ public class BuggyHomePageTest extends BaseTestClass{
 	public void buggyHomePageTest() {
 		
 		logger = report.createTest("Launching Buggy Cars Rating");
-		
+		//better invoke to be insdide try
 		invokeBrowser("Chrome");
 		PageBaseClass pageBase = new PageBaseClass(driver, logger);
 		PageFactory.initElements(driver, pageBase);
