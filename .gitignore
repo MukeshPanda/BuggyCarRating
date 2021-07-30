@@ -1,5 +1,7 @@
-vim .gitignore### Eclipse
+### Eclipse
 .settings/
 .classpath
-.project### macOS ###
+.project
+
+### macOS ###
 *.DS_Store
