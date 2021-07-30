@@ -1,0 +1,5 @@
+vim .gitignore### Eclipse
+.settings/
+.classpath
+.project### macOS ###
+*.DS_Store
