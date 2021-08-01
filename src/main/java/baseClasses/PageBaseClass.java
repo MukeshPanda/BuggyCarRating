@@ -85,7 +85,8 @@ public class PageBaseClass extends BaseTestClass {
 			reportFail(e.getMessage());
 		}
 		
-	}	
+	}
+	
 
 	/****************** Reporting Functions ***********************/
 	public void reportFail(String reportString) {

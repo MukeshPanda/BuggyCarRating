@@ -41,17 +41,21 @@ public class BuggyHomePage extends PageBaseClass{
 	@FindBy(css="a.btn.btn-success-outline")
 	public WebElement userRegistrationLink;
 	
+	@FindBy(css="a.navbar-brand")
+	public WebElement buggyHomeLink;
+	
+	@FindBy(css="img.img-fluid.center-block")
+	public WebElement popularMake_LamorghiniImg;
+
+	
 	public void verifyHomePageInfo() {
 		try {
 			verifyElementIsDisplayed(popularMake);
 			verifyElementIsDisplayed(popularModel);
 			verifyElementIsDisplayed(overallRating);
-//			verifyElementTextIsCorrect(popularMake, "Popular Make");
-//			verifyElementTextIsCorrect(popularModel, "Popular Model");
-//			verifyElementTextIsCorrect(overallRating, "Overall Rating");
-			Assert.assertEquals("Popular Make", popularMake.getText(), "Popular Make text is right");
-			Assert.assertEquals("Popular Model", popularModel.getText(), "Popular Model text is right");
-			Assert.assertEquals("Overall Rating", overallRating.getText(), "Overall Rating text is right");
+			verifyElementTextIsCorrect(popularMake, "Popular Make");
+			verifyElementTextIsCorrect(popularModel, "Popular Model");
+			verifyElementTextIsCorrect(overallRating, "Overall Rating");
 			reportPass("All assertions Pass for Popular Make, Popular Model, Overall Rating");
 		} catch (Exception e) {
 			reportFail(e.getMessage());
@@ -69,6 +73,26 @@ public class BuggyHomePage extends PageBaseClass{
 		PageFactory.initElements(driver, userRegistration);
 		return userRegistration;
 		
+	}
+	
+	public UserLogin userLogin() {
+		
+		logger.log(Status.INFO, "Logging in registered user");
+		buggyHomeLink.click();
+		logger.log(Status.PASS, "Clicked the Buggy Home Link to navigate to home screen");
+		UserLogin userLogin = new UserLogin(driver, logger);
+		PageFactory.initElements(driver, userLogin);
+		return userLogin;
+		
+	}
+	
+	public PopularMakePage popularMakePage() {
+		logger.log(Status.INFO, "Verifying Popular make page");
+		popularMake_LamorghiniImg.click();
+		logger.log(Status.PASS, "Clicked Lamborghini Image to navigate to Popular Make screen");
+		PopularMakePage popularMakePage = new PopularMakePage(driver, logger);
+		PageFactory.initElements(driver, popularMakePage);
+		return popularMakePage;
 	}
 	
 
