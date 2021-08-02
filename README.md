@@ -2,7 +2,7 @@
 
 ### Tools and Dependencies Required
 
-- Eclipse
+- Eclipse 2021-06
 - Maven
 - Selenium
 - Extent Report
