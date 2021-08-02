@@ -1,5 +1,7 @@
 package PageClasses;
 
+import static org.testng.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -36,7 +38,7 @@ public class PopularMakePage extends PageBaseClass{
 	@FindBy(xpath="//table[@class='cars table table-hover']")
 	public WebElement lamborghini_table;
 	
-	@FindBy(xpath="//table[@class='cars table table-hover']//th")
+	@FindBy(xpath="//table[@class='cars table table-hover']//thead//tr//th")
 	public WebElement lamborghini_table_header;
 	
 	@FindBy(xpath="//table[@class='cars table table-hover']//th[3]")
@@ -57,27 +59,10 @@ public class PopularMakePage extends PageBaseClass{
 		verifyElementTextIsCorrect(lamborghini_text2, "Ferruccio Lamborghini, an Italian manufacturing magnate, founded Automobili Ferruccio Lamborghini S.p.A. in 1963 to compete with established marques, including Ferrari. The company gained wide acclaim in 1966 for the Miura sports coupé, which established rear mid-engine, rear wheel drive as the standard layout for high-performance cars of the era. Lamborghini grew rapidly during its first decade, but sales plunged in the wake of the 1973 worldwide financial downturn and the oil crisis. The firm's ownership changed three times after 1973, including a bankruptcy in 1978. American Chrysler Corporation took control of Lamborghini in 1987 and sold it to Malaysian investment group Mycom Setdco and Indonesian group V'Power Corporation in 1994. In 1998, Mycom Setdco and V'Power sold Lamborghini to the Volkswagen Group where it was placed under the control of the group's Audi division.");
 		verifyElementTextIsCorrect(lamborghini_text3, "Lamborghini produces sports cars and V12 engines for offshore powerboat racing. Lamborghini currently produces the V12-powered Aventador and the V10-powered Huracán.");
 		
-		//verify table data
-		try {
-			if(lamborghini_table.isDisplayed()) {
-				String[] data = {"", "Model", "Rank", "Votes", "Comments"}; 
-				List <WebElement> lamborghiniTableCol = (List<WebElement>) lamborghini_table_header;
-				System.out.println("lamborghiniTableCol size - " );
-				System.out.println("lamborghiniTableCol size - " + lamborghiniTableCol.size());
-				for (int i = 0; i < lamborghiniTableCol.size(); i++) {
-					System.out.println("Inside table data 3");
-					WebElement th = driver.findElement(By.xpath("//table[@class='cars table table-hover']//th[" + i + "]"));
-					System.out.println("Inside table data 4");
-					String tableData = data[i];
-					verifyElementTextIsCorrect(th, tableData);
-					System.out.println("th - " + th);
-					System.out.println("tableData - " + tableData);
-				}
-			}
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+		
+		List <WebElement> columns = driver.findElements(By.xpath("//table[@class='cars table table-hover']//thead//tr//th"));
+		int colCount = columns.size();
+		
 		
 	}
 

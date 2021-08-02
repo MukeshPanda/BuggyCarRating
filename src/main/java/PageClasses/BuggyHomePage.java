@@ -47,6 +47,7 @@ public class BuggyHomePage extends PageBaseClass{
 	@FindBy(css="img.img-fluid.center-block")
 	public WebElement popularMake_LamorghiniImg;
 
+
 	
 	public void verifyHomePageInfo() {
 		try {
@@ -94,6 +95,7 @@ public class BuggyHomePage extends PageBaseClass{
 		PageFactory.initElements(driver, popularMakePage);
 		return popularMakePage;
 	}
+	
 	
 
 }

@@ -52,7 +52,7 @@ public class UserRegistration extends PageBaseClass{
 		
 		verifyElementIsDisplayed(registrationPageText);
 		verifyElementTextIsCorrect(registrationPageText, "Register with Buggy Cars Rating");
-		loginTextBox.sendKeys("qwerty2");
+		loginTextBox.sendKeys("qwerty2111");
 		firstNameTextBox.sendKeys("qwerty");
 		lastNameTextBox.sendKeys("qwerty");
 		passwordTextBox.sendKeys("Qwerty@123456");

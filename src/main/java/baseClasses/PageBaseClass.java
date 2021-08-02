@@ -73,8 +73,6 @@ public class PageBaseClass extends BaseTestClass {
 	public void verifyElementTextIsCorrect(WebElement webElement, String webElementText){
 		try {
 			String text = webElement.getText();
-			System.out.println("----" + text + "----");
-			System.out.println("----" + webElementText + "----");
 			if(text.equals(webElementText)){
 				reportPass("Webelement text " + " for " + webElement.getText() + " text matches " + webElementText);
 			}else {
@@ -114,33 +112,6 @@ public class PageBaseClass extends BaseTestClass {
 			e.printStackTrace();
 		}
 
-	}
-	
-	/***************** Wait Functions in Framework *****************/
-	public void waitForPageLoad() {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-
-		int i = 0;
-		while (i != 10) {
-			String pageState = (String) js.executeScript("return document.readyState;");
-			if (pageState.equals("complete")) {
-				break;
-			} else {
-				waitLoad(1);
-			}
-		}
-
-		waitLoad(2);
-
-		i = 0;
-		while (i != 10) {
-			Boolean jsState = (Boolean) js.executeScript("return window.jQuery != undefined && jQuery.active == 0;");
-			if (jsState) {
-				break;
-			} else {
-				waitLoad(1);
-			}
-		}
 	}
 
 }

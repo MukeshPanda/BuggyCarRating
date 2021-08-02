@@ -29,23 +29,23 @@ public class UserLogin extends PageBaseClass{
 	@FindBy(xpath="//a[text()='Logout']")
 	public WebElement logoutLink;
 	
-	@FindBy(css="input.form-control.ng-pristine.ng-valid.ng-touched")
+	@FindBy(css="#username")
 	public WebElement userName;
 
-	@FindBy(xpath="//*[@id=\"firstName\"]")
+	@FindBy(css="#firstName")
 	public WebElement firstName;
 	
-	@FindBy(id="lastName")
+	@FindBy(css="#lastName")
 	public WebElement lastName;
 	
 	@FindBy(css="select.form-control.ng-valid.ng-touched.ng-dirty")
 	public WebElement hobby;
 		
 	
-	public void loginUser() {
+	public void loginUser(String userName, String password) {
 		
-		loginTextBox.sendKeys("qwerty4");
-		passwordTextBox.sendKeys("Qwerty@1234");
+		loginTextBox.sendKeys(userName);
+		passwordTextBox.sendKeys(password);
 		loginButton.click();
 		profileLink.click();	
 		
